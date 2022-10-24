@@ -1,9 +1,10 @@
 CLASSES = {
-  0: 'class0',
-  1: 'class1',
-  2: 'class2',
-  3: 'class3',
-  4: 'class4',
+  0: 'Alma Mater',
+  1: 'Butler Library',
+  2: "Earl's Hall",
+  3 : "Fountain",
+  4 : "Low Memorial",
+  5 : "Scholar Lion"
 };
 
 const MODEL_PATH =
@@ -26,7 +27,7 @@ const demo = async () => {
   status('');
 
   // Make a prediction through the locally hosted cat.jpg.
-  const catElement = document.getElementById('cat');
+  const catElement = document.getElementById('ButlerLibrary');
   if (catElement.complete && catElement.naturalHeight !== 0) {
     predict(catElement);
     catElement.style.display = '';
@@ -64,6 +65,7 @@ async function predict(imgElement) {
 
     // Reshape to a single-element batch so we can pass it to predict.
     const batched = normalized.reshape([1, IMAGE_SIZE, IMAGE_SIZE, 3]);
+    print(batched);
 
     startTime2 = performance.now();
     // Make a prediction through my_model.
